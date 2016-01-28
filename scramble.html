@@ -7,6 +7,8 @@
     <h1>A Javascript Word Scramble Game</h1>
 
     <script>
+        "use_strict";
+
         var WORDS     = ["booger", "apple", "hackbright", "mango"];
         var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
@@ -15,14 +17,26 @@
         while (playing) {
 
             // Grab a random word from the WORDS array
-
+            var wordIndex = Math.floor(Math.random() * WORDS.length);  
             // Grab the corresponding scrambled word from the SCRAMBLED array
-
+            var scrambledWord = SCRAMBLED[wordIndex];
+            // Show an alert with the scrambled word.
+            alert('Your scrambled word is ' + scrambledWord + '.');
             // prompt the user to guess the original word when given the scrambled word
+            var guess = prompt('What is your guess? Make it a good one because you only get one chance:',
+                                      'Enter your text here');
 
             // If the user guesses wrong, tell them they were wrong and the right word.
-            
             // If the user guesses the correct word, congratulate them.
+            if (guess !== WORDS[wordIndex]) {
+                alert('Your answer was incorrect. The correct answer is: ' + WORDS[wordIndex]);
+            } else { 
+                alert('Your answer was correct! Congratulations!');
+                alert('You win a virtual Balloonicorn sticker.');
+            }
+
+
+
 
             playing = confirm("Press OK To keep playing or Cancel to quit");
 
@@ -31,6 +45,7 @@
         }
 
         alert("goodbye!");
+
     </script>
     
 </body>
